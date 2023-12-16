@@ -35,11 +35,23 @@ contract Staking_dapp {
         
     }
 
-    function unstakeToken() {
+    function unstakeToken() public {
         uint balance = stakingBalance[msg.sender];
         require(balance > 0, "Balance is empty");
         tether_token.transfer(msg.sender, balance);
         stakingBalance[msg.sender] = 0;
         isStaking[msg.sender] = false;
+    }
+
+    function issueReward() public {
+        require(msg.sender == owner, "Caller of this function must be the owner");
+        // issue tokens to all stakers
+        for (uint256 index = 0; index < stakers.length; index++) {
+            address recipient = stakers[i];
+            uint balance = stakingBalance[recipient];
+            if ( balance > 0 ){
+                dummy_token.transfer(recipient, balance);
+            }
+        }
     }
 }
