@@ -14,7 +14,7 @@ contract Staking_dapp {
     address[] public stakers;
     mapping(address => uint) public stakingBalance;
     mapping(address => bool) public hasStaked;
-    mapping(address => bool) public isStaked;
+    mapping(address => bool) public isStaking;
 
     constructor(dummy _dummyToken, Tether _tetherToken) public {
 
@@ -27,6 +27,19 @@ contract Staking_dapp {
         require(_amount > 0, "Amount should be greater than 0");
         tether_token.transferFrom(msg.sender, address(this), _amount);
         stakingBalance[msg.sender] = stakingBalance[msg.sender] + _amount;
+        if(!hasStaked[msg.sender]){
+            stakers.push(msg.sender);
+        }
+        isStaking[msg.sender] = true;
+        hasStaked[msg.sender] = true;
         
+    }
+
+    function unstakeToken() {
+        uint balance = stakingBalance[msg.sender];
+        require(balance > 0, "Balance is empty");
+        tether_token.transfer(msg.sender, balance);
+        stakingBalance[msg.sender] = 0;
+        isStaking[msg.sender] = false;
     }
 }
