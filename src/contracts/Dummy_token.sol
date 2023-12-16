@@ -2,8 +2,8 @@
 pragma solidity 0.8.21;
 
 contract Tether {
-    string public name = "Dummy Thether Token";
-    string public symbol = "Thether";
+    string public name = "Dummy Token";
+    string public symbol = "DUM";
     uint public totalSupply = 100000000000000000;
     uint public decimals = 18;
 
