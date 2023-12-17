@@ -1,4 +1,4 @@
-//const { artifacts } = require('truffle')
+/* eslint-disable no-undef */
 
 const dummy_token = artifacts.require("dummy");
 const Tether_token = artifacts.require("Tether");
@@ -19,9 +19,9 @@ module.exports = async function (deployer, network, account) {
     );
     const stakingDapp = await staking_dapp.deployed();
 
-    await dummyToken.transfer(stakingDapp, "1000000000000000000");
-
-    await thether_token.transfer(account[1], "1000000000000000000");
+    await dummyToken.transfer(stakingDapp.address, "1000000000000000");
+    await thether_token.transfer(account[1], "1000000000000000");
+        console.log(stakingDapp.address, "<------------dummytoken")
   } catch (error) {
     console.log("errorin deployment:", error);
   }

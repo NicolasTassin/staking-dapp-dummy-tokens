@@ -9838,14 +9838,65 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0x6e11fb1b7f119e3f2fa29896ef5fdf8b8a2d0d4df6fe90ba8668e7d8b2ffa25e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "_spender",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approve",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0x1eA4ECe5e96A384e0BdA966A454c36c69C0203B4",
-      "transactionHash": "0x2e75428a588b4c9e5e54a0cceebf82db1be3c803a3585e26841aca1ae4c69886"
+      "address": "0xdc455fE87312fe6AbD5D138b233c8416B1C4a2EF",
+      "transactionHash": "0x010ac1b4e7ebfc22cf620c4a9c2cea6cac74450594d5537631e4b54745bdb0f3"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2023-12-17T06:52:49.520Z",
+  "updatedAt": "2023-12-17T08:27:45.766Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

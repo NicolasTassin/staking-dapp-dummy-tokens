@@ -1,5 +1,6 @@
 //const { artifacts } = require("truffle");
 
+// eslint-disable-next-line no-undef
 const staking_dapp = artifacts.require("staking_dapp");
 
 module.exports = async function (callback) {
