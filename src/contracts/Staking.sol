@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.21;
+pragma solidity 0.8.19;
 
-import "./Tether.sol";
+import "./Tether_token.sol";
 import "./Dummy_token.sol";
 
 contract Staking_dapp {
@@ -16,7 +16,7 @@ contract Staking_dapp {
     mapping(address => bool) public hasStaked;
     mapping(address => bool) public isStaking;
 
-    constructor(dummy _dummyToken, Tether _tetherToken) public {
+    constructor(dummy _dummyToken, Tether _tetherToken) {
 
         dummy_token = _dummyToken;
         tether_token = _tetherToken;
@@ -46,7 +46,7 @@ contract Staking_dapp {
     function issueReward() public {
         require(msg.sender == owner, "Caller of this function must be the owner");
         // issue tokens to all stakers
-        for (uint256 index = 0; index < stakers.length; index++) {
+        for (uint256 i = 0; i < stakers.length; i++) {
             address recipient = stakers[i];
             uint balance = stakingBalance[recipient];
             if ( balance > 0 ){

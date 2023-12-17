@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.21;
+pragma solidity 0.8.19;
 
 contract Tether {
-    string public name = "Dummy Thether Token";
-    string public symbol = "Thether";
+    string public name = "Dummy Tether Token";
+    string public symbol = "Tether";
     uint public totalSupply = 100000000000000000;
     uint public decimals = 18;
 
@@ -21,19 +21,19 @@ contract Tether {
     mapping(address => uint256) public balance;
     mapping(address => mapping( address => uint256)) public allowance;
 
-    constructor() public {
+    constructor() {
         balance[msg.sender] = totalSupply;
     }
 
-    function transfer(address _to, uint256 _value) public returns(bool successs) {
+    function transfer(address _to, uint256 _value) public returns(bool success) {
         require(balance[msg.sender] >= _value, "Not enough funds");
         balance[msg.sender] -= _value;
-        balance[_to] += value;
+        balance[_to] += _value;
         emit Transfer(msg.sender, _to, _value);
         return true;
     }
 
-    function approve( address _spender, uint256 _amount) public returns (bool success) {
+    function approve( address _spender, uint256 _value) public returns (bool success) {
         allowance[msg.sender][_spender] = _value;
         emit Approve(msg.sender, _spender, _value);
         return true;
